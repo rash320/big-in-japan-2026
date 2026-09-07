@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fff8f3">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png">
+<title>Japan 2026</title><!-- V12.2 FIXED NAVIGATION --><!-- V10 --><!-- V9 -->
+<style>
+:root{--ink:#17344b;--paper:#fff9f4;--card:#fff;--pink:#f5a2ad;--rose:#ef7082;--green:#285f57;--sage:#dcebe1;--blue:#dcecf4;--peach:#fae2d5;--line:#eee4dc}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;padding-bottom:88px}
+.panel{display:none}.panel.active{display:block}.wrap{max-width:820px;margin:auto;padding:14px}
+.top{position:sticky;top:0;z-index:10;background:rgba(255,249,244,.96);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #f3ebe5}
+.brand{font-weight:900;letter-spacing:2px;font-size:21px}.round{border:0;background:transparent;font-size:25px;color:var(--ink)}
+.hero{margin:0 12px;border-radius:0 0 26px 26px;overflow:hidden;position:relative;background:#dfeef4}
+.hero img{width:100%;height:112px;object-fit:cover;display:block}.minimal-hero{border-radius:0 0 18px 18px}
+.hero-copy{position:absolute;right:18px;top:20px;background:rgba(255,245,242,.88);padding:10px 14px;border-radius:18px;text-align:right;box-shadow:0 5px 20px #17344b13}
+.hero-copy .jp{font-size:24px;font-weight:900}.hero-copy small{display:block;line-height:1.4;font-weight:700}
+.today{margin:14px 0;background:linear-gradient(135deg,#ffe8ea,#fff);border:1px solid #f6d7db;border-radius:22px;padding:15px;display:flex;align-items:center;gap:13px}
+.today img{width:54px;height:54px;border-radius:16px}.today h2{margin:0 0 4px;font-size:21px}.today p{margin:0;font-size:13px;opacity:.75}
+.destinations{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:6px 0 14px}
+.dest{text-align:center}.circle{width:70px;height:70px;border-radius:50%;margin:auto;display:flex;align-items:center;justify-content:center;font-size:31px;border:1px solid #f0e5df}
+.dest:nth-child(1) .circle{background:#fde4e7}.dest:nth-child(2) .circle{background:#dfeee1}.dest:nth-child(3) .circle{background:#f8e3db}.dest:nth-child(4) .circle{background:#ddebf7}
+.dest b{display:block;font-size:13px;margin-top:5px}
+.home-split{display:grid;grid-template-columns:1.08fr .92fr;gap:10px;align-items:start}.map-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 5px 16px #17344b0a}.map-card img{width:100%;display:block}.map-card .mapbtn{display:block;margin:10px;background:var(--green);color:white;text-decoration:none;text-align:center;padding:12px;border-radius:14px;font-weight:900}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tile,.card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 5px 16px #17344b0a}
+.tile{padding:13px;min-height:104px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}.tile .ico{font-size:28px}.tile b{margin-top:7px;font-size:14px}.tile small{font-size:11px;opacity:.68;margin-top:2px}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:8px 0 12px}.section-title h2{margin:0;font-size:20px}
+.card{padding:14px;margin-bottom:10px}.card p{line-height:1.5;font-size:14px}.day-head{display:flex;align-items:center;gap:9px}.date{background:var(--sage);padding:6px 9px;border-radius:11px;font-weight:900}
+.action-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.btn{text-decoration:none;border-radius:12px;padding:9px 11px;background:#eef4f1;color:var(--ink);font-weight:800;font-size:13px}.btn.primary{background:var(--green);color:#fff}
+.askbox{background:white;border:1px solid var(--line);border-radius:18px;padding:12px;margin-top:10px}.askbox input{width:100%;border:0;outline:0;font-size:16px;background:transparent}.askbox button{margin-top:8px;width:100%;border:0;border-radius:13px;background:var(--rose);color:#fff;padding:11px;font-weight:900}.answer{display:none;margin-top:9px;background:#f8f4f0;border-radius:13px;padding:11px;line-height:1.5}
+.link-list a{display:flex;justify-content:space-between;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:8px;font-weight:800}
+.quote{text-align:center;padding:20px 10px 8px;font-weight:800;color:#285f57}.quote small{display:block;color:#17344b;margin-top:5px}
+.bottom{position:fixed;z-index:20;bottom:0;left:0;right:0;background:rgba(255,255,255,.97);display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);padding:7px 8px calc(7px + env(safe-area-inset-bottom))}
+.bottom button{border:0;background:transparent;color:var(--ink);font-size:11px;font-weight:800}.bottom button b{display:block;font-size:21px}.bottom button.on{color:var(--rose)}
+@media(max-width:650px){.home-split{grid-template-columns:1fr}.map-card{order:0}.grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:651px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+
+<style>
+.v10-home{
+  max-width:820px;
+  margin:0 auto;
+  padding:14px 14px 96px;
+  background:#fffaf6;
+}
+.v10-banner-card,
+.v10-map-card{
+  background:#fff;
+  border-radius:26px;
+  box-shadow:0 8px 24px rgba(23,52,75,.08);
+  border:1px solid #f0e6df;
+  overflow:hidden;
+}
+.v10-banner-card{
+  margin-bottom:14px;
+}
+.v10-banner-card img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.v10-map-card{
+  padding:10px;
+}
+.v10-map-card > img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:19px;
+}
+.v10-map-button{
+  margin-top:10px;
+  min-height:82px;
+  border-radius:19px;
+  background:#17624d;
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  padding:12px 18px;
+  box-shadow:0 6px 16px rgba(23,98,77,.18);
+}
+.v10-map-button .map-ico{font-size:36px}
+.v10-map-button strong{
+  display:block;
+  font-size:24px;
+  line-height:1.15;
+}
+.v10-map-button small{
+  display:block;
+  margin-top:4px;
+  font-size:16px;
+  opacity:.95;
+  direction:ltr;
+}
+.v10-destinations{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:14px;
+}
+.v10-destinations button{
+  appearance:none;
+  border:1px solid #efe4dd;
+  background:#fff;
+  border-radius:20px;
+  min-height:112px;
+  padding:10px 5px;
+  color:#17344b;
+  box-shadow:0 5px 15px rgba(23,52,75,.06);
+}
+.v10-destinations button:nth-child(1){background:#fff0f2}
+.v10-destinations button:nth-child(2){background:#eff7f0}
+.v10-destinations button:nth-child(3){background:#fff0ee}
+.v10-destinations button:nth-child(4){background:#eef6fb}
+.v10-destinations span{
+  display:block;
+  font-size:38px;
+  line-height:1;
+  margin-bottom:8px;
+}
+.v10-destinations b{
+  font-size:15px;
+}
+@media(max-width:480px){
+  .v10-home{padding:10px 10px 92px}
+  .v10-banner-card,.v10-map-card{border-radius:20px}
+  .v10-map-card{padding:8px}
+  .v10-map-card > img{border-radius:15px}
+  .v10-map-button{min-height:72px;border-radius:16px}
+  .v10-map-button strong{font-size:21px}
+  .v10-map-button small{font-size:14px}
+  .v10-destinations{gap:7px}
+  .v10-destinations button{min-height:92px;border-radius:17px}
+  .v10-destinations span{font-size:31px}
+  .v10-destinations b{font-size:13px}
+}
+</style>
+
+
+<style>
+.v11-tripline{margin:12px 0 14px;text-align:center;font-size:12px;font-weight:900;letter-spacing:1.5px;color:#49685f}
+.v11-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 14px}
+.v11-action{min-height:78px;border-radius:18px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:9px;padding:10px 12px;font-weight:900;border:1px solid #e9ded6;box-shadow:0 5px 15px rgba(23,52,75,.06)}
+.v11-action.map{background:#17624d;color:white}.v11-action.book{background:#fff0f2;color:#17344b}
+.v11-action span:first-child{font-size:27px}.v11-action small{display:block;font-size:11px;font-weight:700;opacity:.72;margin-top:2px}
+.v11-booking{background:#fff;border:1px solid #eee4dc;border-radius:18px;padding:14px;margin-bottom:10px;box-shadow:0 5px 15px rgba(23,52,75,.05)}
+.v11-booking h3{margin:0 0 5px;font-size:16px}.v11-booking p{margin:0 0 9px;font-size:13px;line-height:1.5}
+.v11-booking .links{display:flex;gap:7px;flex-wrap:wrap}.v11-booking .links a{background:#eef4f1;color:#17344b;text-decoration:none;border-radius:11px;padding:8px 10px;font-size:12px;font-weight:850}
+@media(max-width:480px){.v11-actions{gap:8px}.v11-action{min-height:70px;font-size:13px}.v11-action span:first-child{font-size:23px}}
+</style>
+
+<style>
+.v12-actions{grid-template-columns:repeat(3,1fr)}
+.v11-action.guide{background:#eef6fb;color:#17344b}
+@media(max-width:560px){.v12-actions{grid-template-columns:1fr 1fr}.v12-actions .guide{grid-column:1/-1;min-height:64px}}
+</style>
+</head>
+<body>
+
+<section id="home" class="panel active">
+  <div class="v10-home">
+    <div class="v10-banner-card">
+      <img src="big-in-japan-banner.png" alt="BIG IN JAPAN 2026">
+    </div>
+
+    <div class="v10-map-card">
+      <img src="route-map-v10.png" alt="Japan 2026 route map">
+      <div class="v11-tripline">12–27 SEPTEMBER • 16 DAYS • 🇯🇵</div>
+      <div class="v11-actions v12-actions">
+        <a class="v11-action map" href="https://www.google.com/maps/d/viewer?mid=1348nsvE1pLcLrNLFCl7rucKhLmxxiCQ" target="_blank" rel="noopener noreferrer"><span>🗺️</span><span>המפה שלנו<small>Google My Maps ↗</small></span></a>
+        <a class="v11-action book" href="#bookings" data-panel="bookings"><span>🎟️</span><span>ההזמנות שלנו<small>כל מה שכבר סגור</small></span></a>
+        <a class="v11-action guide" href="https://rash320.github.io/big-in-japan-2026/Japan_2026_Master_Guide_FINAL_HE.docx" target="_blank" rel="noopener noreferrer"><span>📖</span><span>מדריך הטיול<small>Word • המסלול הסופי</small></span></a>
+      </div>
+    </div>
+
+    <div class="v10-destinations">
+      <button data-panel="tokyo"><span>🗼</span><b>Tokyo</b></button>
+      <button data-panel="nature"><span>🌲</span><b>Nature</b></button>
+      <button data-panel="kyoto"><span>⛩️</span><b>Kyoto</b></button>
+      <button data-panel="osaka"><span>🏯</span><b>Osaka</b></button>
+    </div>
+  </div>
+</section>
+
+<section id="tokyo" class="panel"><div class="wrap"><div class="section-title"><h2>🗼 Tokyo</h2><span>12–16 + 26–27/9</span></div><div id="tokyoDays"></div></div></section>
+<section id="nature" class="panel"><div class="wrap"><div class="section-title"><h2>🏔️ Nature & Alps</h2><span>17–21/9</span></div><div id="natureDays"></div></div></section>
+<section id="kyoto" class="panel"><div class="wrap"><div class="section-title"><h2>⛩️ Kyoto</h2><span>21–25/9</span></div><div id="kyotoDays"></div></div></section>
+<section id="osaka" class="panel"><div class="wrap"><div class="section-title"><h2>🏯 Osaka ⭐</h2><span>25/9</span></div><div id="osakaDays"></div></div></section>
+
+
+<section id="bookings" class="panel"><div class="wrap">
+<div class="section-title"><h2>🎟️ ההזמנות שלנו</h2><span>Confirmed</span></div>
+
+<div class="v11-booking"><h3>15/9 • Gonpachi Nishi-Azabu 🔒</h3>
+<p>ארוחת ערב • Tokyo</p><div class="links">
+<a href="https://gonpachi.jp/nishi-azabu/" target="_blank" rel="noopener">אתר רשמי ↗</a>
+<a href="https://www.google.com/maps/search/?api=1&query=Gonpachi+Nishi-Azabu+Tokyo" target="_blank" rel="noopener">📍 ניווט</a>
+</div></div>
+
+<div class="v11-booking"><h3>16/9 • teamLab Borderless 🔒</h3>
+<p>10:30 • Azabudai Hills, Tokyo</p><div class="links">
+<a href="https://www.teamlab.art/e/tokyo/" target="_blank" rel="noopener">אתר / כרטיסים ↗</a>
+<a href="https://www.google.com/maps/search/?api=1&query=teamLab+Borderless+Azabudai+Hills+Tokyo" target="_blank" rel="noopener">📍 ניווט</a>
+</div></div>
+
+<div class="v11-booking"><h3>16/9 • The Seiko Museum Ginza 🔒</h3>
+<p>16:30 • Ginza, Tokyo</p><div class="links">
+<a href="https://museum.seiko.co.jp/en/use/" target="_blank" rel="noopener">אתר רשמי ↗</a>
+<a href="https://www.google.com/maps/search/?api=1&query=The+Seiko+Museum+Ginza" target="_blank" rel="noopener">📍 ניווט</a>
+</div></div>
+
+<div class="v11-booking"><h3>⏳ להזמין / לעדכן</h3>
+<p>Shibuya Sky • Hakone Ropeway Fast Lane • Shinkansen Kyoto → Tokyo. נוסיף לכאן אחרי האישור.</p>
+</div>
+</div></section>
+
+<section id="hotels" class="panel"><div class="wrap"><div class="section-title"><h2>🏨 לינות</h2><span>כל הבסיסים</span></div>
+<div class="card"><b>Dai-ichi Hotel Tokyo</b><p>12–17/9 + 26–27/9 • Shimbashi</p><div class="action-row"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Dai-ichi+Hotel+Tokyo">📍 ניווט</a></div></div>
+<div class="card"><b>Takayama • GRANQ</b><p>17–19/9 • בסיס Takayama/Kamikochi.</p></div>
+<div class="card"><b>Hakone • 箱根寄月庵</b><p>19–21/9 • בסיס Hakone.</p></div>
+<div class="card"><b>Hotel Vischio Kyoto by GRANVIA</b><p>21–26/9 • Kyoto Station</p><div class="action-row"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Hotel+Vischio+Kyoto+by+GRANVIA">📍 ניווט</a></div></div>
+</div></section>
+
+<section id="shopping" class="panel"><div class="wrap">
+<div class="section-title"><h2>🛍️ קניות</h2><span>Shopping list</span></div>
+<div class="card"><b>UNIQLO</b><p>Tokyo • Ginza flagship</p><div class="action-row"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=UNIQLO+Ginza+Tokyo">📍 ניווט</a></div></div>
+<div class="card"><b>MUJI</b><p>Tokyo • MUJI Ginza</p><div class="action-row"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=MUJI+Ginza+Tokyo">📍 ניווט</a></div></div>
+<div class="card"><b>Onitsuka Tiger</b><p>נעליים וקניות • נשמור את הסניף הנוח ביותר לפי היום.</p><div class="action-row"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Onitsuka+Tiger+Ginza+Tokyo">📍 ניווט</a></div></div>
+<div class="card"><b>SEIKO</b><p>16/9 • Ginza • Seiko Museum + SEIKO HOUSE / Dream Square.</p><div class="action-row"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Seiko+Dream+Square+Ginza">📍 ניווט</a></div></div>
+<div class="card"><b>👓 משקפי ראייה</b><p>Zoff Nishi-Ginza • בדיקת ראייה ומשקפיים.</p><div class="action-row"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Zoff+NISHIGINZA+Tokyo">📍 ניווט</a></div></div>
+<div class="card"><b>ASICS</b><p>Tokyo • Ginza</p><div class="action-row"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=ASICS+Tokyo+Ginza">📍 ניווט</a></div></div>
+</div></section>
+
+<section id="rain" class="panel"><div class="wrap"><div class="section-title"><h2>🌧️ Rain Bank</h2><span>Plan B</span></div>
+<div class="card"><b>Tokyo • Miraikan ⭐⭐⭐</b><p>2.5–3 שעות; מצוין גם בלי גשם.</p></div>
+<div class="card"><b>Tokyo • teamLab Borderless ⭐⭐⭐</b><p>כבר משובץ ל-16/9 10:30 🔒.</p></div>
+<div class="card"><b>Kyoto • teamLab Biovortex ⭐⭐</b><p>אופציית גשם לשמור בבנק.</p></div>
+<div class="card"><b>Hakone</b><p>גשם קל: מוזיאון/onsen. גשם כבד: מורידים קצב.</p></div>
+</div></section>
+
+<section id="hot" class="panel"><div class="wrap"><div class="section-title"><h2>🔥 Hot on Social</h2><span>Food • Shopping • Konbini</span></div>
+<div class="card"><b>🔥 אטרקציות</b><p>נעדכן סמוך לטיסה מה באמת חם ושווה ליד המסלול.</p></div>
+<div class="card"><b>🍙 Food Radar</b><p>ראמן, סושי, קינוחים ומנות עונתיות בלי סטייה מיותרת.</p></div>
+<div class="card"><b>🏪 Konbini Radar</b><p>7-Eleven / FamilyMart / Lawson — דברים עונתיים, onigiri, קינוחים וקפה.</p></div>
+</div></section>
+
+<section id="stations" class="panel"><div class="wrap"><div class="section-title"><h2>🚗 רכב, חניה ועצירות</h2><span>Drive smart</span></div>
+<div class="card"><b>17/9 • Suwako SA 下り</b><p>עצירת שירות בדרך למאטסומוטו — אוכל, שירותים ונוף.</p></div>
+<div class="card"><b>18/9 • Akandana Parking</b><p>חניה לפני השאטל ל-Kamikochi.</p></div>
+<div class="card"><b>21/9 • Hakone → Kyoto</b><p>Hamamatsu SA / Okazaki SA / Tsuchiyama SA לפי עומסים ורעב.</p></div>
+</div></section>
+
+<section id="useful" class="panel"><div class="wrap"><div class="section-title"><h2>🔗 קישורים שימושיים</h2><span>Trip tools</span></div>
+<div class="link-list">
+<a href="https://www.google.com/maps/d/viewer?mid=1348nsvE1pLcLrNLFCl7rucKhLmxxiCQ" target="_blank" rel="noopener noreferrer"><span>📍 Google My Maps שלנו</span><span>↗</span></a>
+<a href="https://smart-ex.jp/en/"><span>🚄 SmartEX • Shinkansen</span><span>↗</span></a>
+<a href="https://tabelog.com/en/"><span>🍜 Tabelog • דירוג מסעדות</span><span>↗</span></a>
+<a href="https://www.c-nexco.co.jp/en/navi/"><span>🚗 NEXCO • מסלולים ואגרות</span><span>↗</span></a>
+<a href="https://sapa.c-nexco.co.jp/"><span>🅿️ Service Areas / Parking Areas</span><span>↗</span></a>
+<a href="https://www.google.com/maps/search/?api=1&query=7-Bank+ATM+Japan"><span>💴 ATM • 7-Bank</span><span>↗</span></a>
+</div></div></section>
+
+<section id="chat" class="panel"><div class="wrap"><div class="section-title"><h2>💬 Japan GPT</h2><span>Assistant</span></div>
+<div class="card"><b>Japan Buddy ✨</b><p>כרגע הוא עונה מתוך המסלול המקומי באפליקציה. ברגע שתוסיפי קישור ישיר לשיחת ChatGPT שלנו, הכפתור כאן יוביל אליה.</p>
+<div class="action-row"><a class="btn primary" href="https://chatgpt.com/">פתחי ChatGPT</a></div></div></div></section>
+
+<nav class="bottom" style="grid-template-columns:repeat(4,1fr)">
+      <button class="on" data-panel="home"><b>🏠</b>בית</button>
+      <button data-panel="hotels"><b>🛏️</b>לינות</button>
+      <button data-panel="shopping"><b>🛍️</b>קניות</button>
+      <button data-panel="useful"><b>☰</b>עוד</button>
+    </nav>
+
+<script>
+const DAYS=[{"date": "12/9", "region": "TOKYO", "title": "נחיתה והתאקלמות", "summary": "נחיתה 12:45 → Dai-ichi Hotel Tokyo → Shimbashi/Ginza → סושי ספונטני", "icon": "🗼", "map": "Shimbashi Tokyo"}, {"date": "13/9", "region": "TOKYO", "title": "Asakusa + Miraikan", "summary": "Sensō-ji בבוקר → Miraikan 2.5–3 שעות → Odaiba waterfront רק אם נשאר כוח", "icon": "🔬", "map": "Miraikan Tokyo"}, {"date": "14/9", "region": "TOKYO", "title": "Meiji → Shibuya", "summary": "Meiji Jingu → Harajuku קצר → Omotesando → Shibuya + Nintendo/Pokémon", "icon": "🌆", "map": "Shibuya Tokyo"}, {"date": "15/9", "region": "TOKYO", "title": "Tsukiji + Ginza", "summary": "Tsukiji → MUJI/Zoff/Issey Miyake/UNIQLO/ASICS → Gonpachi בערב", "icon": "🛍️", "map": "Ginza Tokyo"}, {"date": "16/9", "region": "TOKYO", "title": "יום הולדת 🎂", "summary": "teamLab Borderless 10:30 🔒 → Azabudai → מנוחה → Seiko Museum 16:30 🔒 → שעון", "icon": "🎂", "map": "Azabudai Hills Tokyo"}, {"date": "17/9", "region": "NATURE", "title": "Tokyo → Matsumoto → Takayama", "summary": "🚗 יציאה בבוקר → Suwako SA → מוזיאון Matsumoto / Kusama → Takayama", "icon": "🚗", "map": "Matsumoto City Museum of Art"}, {"date": "18/9", "region": "NATURE", "title": "Kamikochi", "summary": "⏰ יציאה מוקדמת → Akandana → Taisho Pond → Tashiro → Kappa Bridge", "icon": "🏔️", "map": "Kappa Bridge Kamikochi"}, {"date": "19/9", "region": "NATURE", "title": "Takayama → Hakone", "summary": "Miyagawa + Sanmachi בבוקר → 🚗 נסיעה ארוכה ל-Hakone", "icon": "♨️", "map": "Hakone Japan"}, {"date": "20/9", "region": "NATURE", "title": "Hakone", "summary": "Lake Ashi + Shrine → Ropeway/Owakudani → Open-Air Museum; הסדר לפי מזג האוויר", "icon": "♨️", "map": "Hakone Open Air Museum"}, {"date": "21/9", "region": "KYOTO", "title": "Hakone → Kyoto", "summary": "🚗 יציאה 08:00–08:30 → תחנות שירות נוחות → החזרת רכב ליד Kyoto Station", "icon": "⛩️", "map": "Kyoto Station"}, {"date": "22/9", "region": "KYOTO", "title": "Kyoto האייקונית", "summary": "⏰ Kiyomizu מוקדם → Sannenzaka/Ninenzaka → Gion → Kawaramachi; Fushimi Inari ⭐", "icon": "⛩️", "map": "Kiyomizu-dera"}, {"date": "23/9", "region": "KYOTO", "title": "Ohara", "summary": "Sanzen-in → כפר/טבע/אוכל מקומי → חזרה מוקדמת וערב פתוח", "icon": "🌿", "map": "Sanzen-in Kyoto"}, {"date": "24/9", "region": "KYOTO", "title": "Nara", "summary": "Nara Park → Tōdai-ji → Isuien אם פתוח → Kasuga Taisha → יער", "icon": "🦌", "map": "Nara Park"}, {"date": "25/9", "region": "OSAKA", "title": "Otagi + Osaka ⭐", "summary": "Otagi Nenbutsu-ji בבוקר → מנוחה → ~15:00 Namba/Hozenji/Dotonbori", "icon": "🌃", "map": "Dotonbori Osaka"}, {"date": "26/9", "region": "TOKYO", "title": "Kyoto → Tokyo", "summary": "Shinkansen → Tokyo rescue slot: Miraikan / Yanesen / Shinjuku / קניות", "icon": "🚄", "map": "Tokyo Station"}, {"date": "27/9", "region": "TOKYO", "title": "טיסה הביתה", "summary": "בוקר קל ליד המלון → קניות אחרונות → טיסה 18:00", "icon": "✈️", "map": "Dai-ichi Hotel Tokyo"}];
+function maps(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q)}
+function render(region,id){
+ const rows=DAYS.filter(x=>x.region===region || (region==="KYOTO"&&x.date==="21/9"));
+ document.getElementById(id).innerHTML=rows.map(x=>`<div class="card"><div class="day-head"><span class="date">${x.date}</span><span style="font-size:22px">${x.icon}</span><b>${x.title}</b></div><p>${x.summary}</p><div class="action-row"><a class="btn" href="${maps(x.map)}">📍 ניווט</a><a class="btn" href="https://www.google.com/maps/d/viewer?mid=1348nsvE1pLcLrNLFCl7rucKhLmxxiCQ" target="_blank" rel="noopener noreferrer">🗺️ My Maps</a></div></div>`).join("");
+}
+render("TOKYO","tokyoDays");render("NATURE","natureDays");render("KYOTO","kyotoDays");render("OSAKA","osakaDays");
+function showPanel(id,btn){
+ const el=document.getElementById(id);
+ if(!el) return;
+ document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
+ el.classList.add("active");
+ document.querySelectorAll(".bottom button").forEach(b=>b.classList.remove("on"));
+ if(btn) btn.classList.add("on");
+ window.scrollTo(0,0);
+}
+document.addEventListener("click",function(e){
+ const trigger=e.target.closest("[data-panel]");
+ if(!trigger) return;
+ const id=trigger.getAttribute("data-panel");
+ if(!id) return;
+ e.preventDefault();
+ showPanel(id, trigger.matches(".bottom button") ? trigger : null);
+ history.replaceState(null,"","#"+id);
+});
+window.addEventListener("hashchange",function(){
+ const id=location.hash.replace("#","");
+ if(id && document.getElementById(id)) showPanel(id,null);
+});
+function tripDayForToday(){const n=new Date();if(n.getFullYear()===2026&&n.getMonth()===8)return DAYS.find(x=>parseInt(x.date)===n.getDate());return null}
+function quickAsk(){
+ const q=(document.getElementById("quickQuestion").value||"").trim();const box=document.getElementById("quickAnswer");const t=tripDayForToday();let a="";
+ if(/היום/.test(q)) a=t?`<b>${t.date} • ${t.title}</b><br>${t.summary}<br><br><a class="btn" href="${maps(t.map)}">📍 ניווט</a>`:"הטיול מתחיל ב-12/9/2026. בינתיים אפשר לפתוח כל אזור ולראות את הימים.";
+ else if(/גשם/.test(q)) a="פתחי את 🌧️ Rain Bank — שם שמרנו חלופות לטוקיו, קיוטו והאקונה.";
+ else if(/אוכל|מסעד/.test(q)) a="פתחי את 🍴 אוכל ומסעדות או Tabelog בקישורים השימושיים.";
+ else if(/חניה|רכב/.test(q)) a="פתחי 🚗 רכב וחניה — שם נמצאות תחנות השירות והחניות המרכזיות.";
+ else a="נסי: “מה עושים היום?”, “מה עושים בגשם?”, “איפה אוכלים?” או “איפה עוצרים עם הרכב?”";
+ box.innerHTML=a;box.style.display="block";
+}
+if(location.hash && document.getElementById(location.hash.slice(1))){showPanel(location.hash.slice(1),null)}
+if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).catch(()=>{})}
+if("caches" in window){caches.keys().then(ks=>ks.forEach(k=>caches.delete(k))).catch(()=>{})}
+</script>
+</body></html>
